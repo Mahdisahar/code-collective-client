@@ -1,0 +1,33 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.home {
+   
+    &__title {
+
+        font-family: $font-family-handwritten-replacement;
+        font-size: $mobile-font-size-header;
+        font-weight: $font-weight-bold;
+        padding: 2rem;
+        color: $color-global;
+    }
+
+    &__hero {
+        display: flex;
+        align-items: flex-end;
+        background-image: url("../../assets/images/American_Cream.jpg") ;
+        background-position: center;
+        background-size: cover;
+        height: 50vh;
+    }
+
+    &__shower {
+        display: flex;
+        align-items: flex-end;
+        background-image: url("../../assets/images/Dream_cream.jpg") ;
+        background-position: center;
+        background-size: cover;
+        height: 50vh;
+    }
+}
