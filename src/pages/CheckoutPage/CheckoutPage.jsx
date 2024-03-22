@@ -25,7 +25,7 @@ function CheckoutPage() {
   const handleRedeemPoints = () => {
 
     // set points to price
-     const discount = redeemPoints * 0.01; // TODO: what is the value of 1 point? 
+     const discount = redeemPoints * 0.25; // TODO: what is the value of 1 point? 
 
      const updatedTotalPrice = totalPrice - discount;
 
@@ -34,10 +34,9 @@ function CheckoutPage() {
     setRedeemPoints(0); // Reset redeemPoints after redeeming
     setDiscountApplied(true); // Set discountApplied to true after redeeming points
     setTotalPrice(updatedTotalPrice); 
-
-
   };
 
+  //TODO: fix this
   const handleInputChange = (e) => {
     const { value } = e.target;
     setRedeemPoints(parseInt(value) || 0); // Ensure value is a number
@@ -220,6 +219,7 @@ function CheckoutPage() {
               <p>Subtotal</p>
               <p>$68.00</p>
             </div>
+
             {/* Add conditional rendering of discount applied */}
             {!discountApplied? '' : (
              <div className="checkout-page__row-1 checkout-page__row-1--spacing">
