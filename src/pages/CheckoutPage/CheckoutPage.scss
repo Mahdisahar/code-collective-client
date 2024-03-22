@@ -130,7 +130,8 @@ font-weight: $font-weight-semi-bold;
 }
 
 &__apply {
-  flex: 0.5;
+  // flex: 0.5;
+  width: 100%;
   cursor: pointer;
   line-height: 1;
   background: transparent;
@@ -187,7 +188,6 @@ font-weight: $font-weight-semi-bold;
   align-items: center;
   gap:0.5rem;
 }
-
 }
 
 .checkout-header {
