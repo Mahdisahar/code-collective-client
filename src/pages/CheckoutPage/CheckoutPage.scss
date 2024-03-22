@@ -152,6 +152,22 @@ font-weight: $font-weight-semi-bold;
 &__form {
   padding: 1rem 0;
 }
+
+&__points {
+  font-size: $mobile-font-size-from-price;
+  line-height: $mobile-from-price-line-height;
+  font-weight: $font-weight-bold;
+  display:flex;
+  gap:0.2rem;
+  align-items: center;
+}
+
+&__redeem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+}
 }
 
 .checkout-header {

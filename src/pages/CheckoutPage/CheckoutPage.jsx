@@ -6,13 +6,32 @@ import logo from "../../assets/logos/commerce-site-logo_22.png";
 import padlock from "../../assets/icons/padlock.png";
 import check from "../../assets/icons/circle.png";
 import voucher from "../../assets/icons/voucher.png";
+import redeem from "../../assets/icons/star_3386686.png";
 
-import { NavLink, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function CheckoutPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
+
+  const [points, setPoints] = useState(1000); // Example points
+  const [redeemPoints, setRedeemPoints] = useState(0);
+  const [discountApplied, setDiscountApplied] = useState(false); // State to track if discount has been applied
+
+
+  const handleRedeemPoints = () => {
+    setPoints((prevPoints) => prevPoints - redeemPoints);
+    setRedeemPoints(0); // Reset redeemPoints after redeeming
+    setDiscountApplied(true); // Set discountApplied to true after redeeming points
+  };
+
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    setRedeemPoints(parseInt(value) || 0); // Ensure value is a number
+  };
+
   return (
     <>
       <header className="checkout-header">
@@ -33,7 +52,6 @@ function CheckoutPage() {
       </header>
       <main>
         <div className="checkout-page">
-          
           {/* Voucher */}
           <section>
             <form
@@ -58,6 +76,46 @@ function CheckoutPage() {
                   placeholder="Your voucher code"
                 ></input>
                 <button className="checkout-page__apply">Apply</button>
+              </div>
+            </form>
+          </section>
+
+          {/* Redeem points */}
+          <section>
+            <form
+              id="redeem"
+              className="checkout-page__form"
+              onSubmit={handleSubmit}
+            >
+              <div className="checkout-page__redeem">
+                <h2 className="checkout-page__title">Your Points</h2>
+                <p className="checkout-page__points">
+                  {points}
+                  <img
+                    src={redeem}
+                    alt="redeem-icon"
+                    className="checkout-page__icon"
+                  />
+                  points
+                </p>
+              </div>
+              <div className="checkout-page__redeem-form">
+                <input
+                  type="number"
+                  name="redeem"
+                  id="redeem"
+                  className="checkout-page__code"
+                  placeholder="Enter points to redeem"
+                  value={redeemPoints}
+                  onChange={handleInputChange}
+                ></input>
+                <button
+                  className="checkout-page__apply"
+                  onClick={handleRedeemPoints}
+                >
+                  Redeem
+                </button>
+                {discountApplied && <p>Your discount has been applied</p>}
               </div>
             </form>
           </section>
@@ -157,7 +215,6 @@ function CheckoutPage() {
               <p>$76.16</p>
             </div>
           </section>
-
         </div>
       </main>
     </>
