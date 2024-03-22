@@ -1,0 +1,41 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.header {
+    padding: 0.8125rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__logo{
+        width: 115px;
+        height: 45px;
+    }
+
+    &__profile {
+        height: 20px;
+        width: auto;
+    }
+
+    &__search {
+        height: 20px;
+        width: auto;
+    }
+
+    &__bag {
+        height: 20px;
+        width: auto;
+    }
+
+    &__country {
+        height: 20px;
+        width: auto;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+}
