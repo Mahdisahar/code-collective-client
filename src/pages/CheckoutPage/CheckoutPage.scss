@@ -1,0 +1,200 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.checkout-page {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  padding: 0px 1rem 1rem;
+
+  &__header {
+    font-size: 1.5rem;
+    line-height: 1.417;
+    font-weight: $font-weight-semi-bold;
+    letter-spacing: 0.6px;
+    padding-bottom: 1rem;
+  }
+
+  &__icon {
+    height: 20px;
+    width: auto;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__items {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: $color-product-background-light;
+
+  }
+
+  &__row-1 {
+    display: flex;
+    justify-content: space-between;
+    color: $color-secondary-text;
+    &--spacing {
+      padding-bottom: 1rem;
+    }
+  }
+
+  &__row-2 {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  &__col-1 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  &__image {
+    width: 56px;
+    height: 56px;
+  }
+
+  &__prod-title {
+    font-family: $font-family-handwritten-replacement;
+    font-size: $mobile-font-size-prod-title;
+    line-height: $mobile-prod-title-line-height;
+  }
+
+  &__prod-type {
+    font-size: $mobile-font-size-prod-details;
+    color: $color-secondary-text;
+    margin: 1rem 0;
+  }
+
+  &__vol {
+    margin-right: 0.75rem;
+  }
+
+  &__instock {
+font-weight: $font-weight-semi-bold;  
+}
+
+&__name {
+  font-weight: $font-weight-semi-bold;  
+
+}
+
+&__order {
+  font-size: $mobile-font-size-del-status;
+}
+
+&__pricing-section {
+  font-size: $mobile-font-size-del-status;
+  margin-top: 1rem;
+}
+
+&__voucher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+   padding-bottom: 0.5rem;
+}
+&__title {
+  font-size: $mobile-font-size-sub-header;
+  font-weight: $font-weight-semi-bold;
+}
+
+&__code {
+  flex: 1 1 0%;
+  border-radius: 0px;
+  // color: rgb(26, 26, 26);
+  border: 1px solid rgb(117, 117, 117);
+  padding: 1.375rem 1rem;
+  min-height: 72px;
+  margin: -1px;
+  height: 40px;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  letter-spacing: 0.5px;
+}
+
+&__voucher-info {
+  display: flex;
+  gap: 1rem;
+  
+}
+
+&__apply {
+  flex: 0.5;
+  cursor: pointer;
+
+  line-height: 1;
+  background: transparent;
+  white-space: nowrap;
+  position: relative;
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 0px;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  min-height: 3.125rem;
+
+  &:hover {
+    color:  rgb(32, 32, 32);
+  }
+}
+
+&__form {
+  padding: 1rem 0;
+}
+}
+
+.checkout-header {
+  padding: 0.8125rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__price {
+    font-size: $mobile-font-size-from-price;
+    line-height: $mobile-from-price-line-height;
+    font-weight: $font-weight-bold;
+  }
+
+  &__title {
+    font-size: $mobile-font-size-del-status;
+    font-weight: $font-weight-bold;
+  }
+
+  &__logo {
+    width: 115px;
+    height: 45px;
+  }
+
+  &__icon {
+    height: 20px;
+    width: auto;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+  }
+
+  &__title-wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.outer-container {
+  display: flex;
+  justify-content: space-between;
+}
