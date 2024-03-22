@@ -1,8 +1,5 @@
 import '../CheckoutPage/CheckoutPage.scss';
-// TODO: move this to public static backend files
 
-import rosejam from '../../assets/images/rose_jam_shower_gel_2020_thumbnail_256.png';
-// import twilight from '../../assets/images/twilight_body_spray_2020_thumbnail_256.png';
 import logo from '../../assets/logos/commerce-site-logo_22.png';
 import padlock from '../../assets/icons/padlock.png';
 import check from '../../assets/icons/circle.png';
@@ -41,10 +38,9 @@ function CheckoutPage() {
     setTotalPrice(updatedTotalPrice); 
   };
 
-  //TODO: fix this
   const handleInputChange = (e) => {
     const { value } = e.target;
-    setRedeemPoints(parseInt(value) || 0); // Ensure value is a number
+    setRedeemPoints(value === '' ? '' : parseInt(value));
   };
 
   useEffect(() => {
@@ -171,8 +167,8 @@ function CheckoutPage() {
                     <div className='outer-container'>
                       <div className='checkout-page__col-1'>
                         <img
-                          src={rosejam}
-                          alt='rose-jam-shower-gel'
+                          src={checkout.image}
+                          alt='product'
                           className='checkout-page__image'
                         />
                         <div>
