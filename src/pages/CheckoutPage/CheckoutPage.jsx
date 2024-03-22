@@ -1,8 +1,5 @@
 import '../CheckoutPage/CheckoutPage.scss';
-// TODO: move this to public static backend files
 
-import rosejam from '../../assets/images/rose_jam_shower_gel_2020_thumbnail_256.png';
-// import twilight from '../../assets/images/twilight_body_spray_2020_thumbnail_256.png';
 import logo from '../../assets/logos/commerce-site-logo_22.png';
 import padlock from '../../assets/icons/padlock.png';
 import check from '../../assets/icons/circle.png';
@@ -171,7 +168,7 @@ function CheckoutPage() {
                       <div className='checkout-page__col-1'>
                         <img
                           src={checkout.image}
-                          alt='product-image'
+                          alt='product'
                           className='checkout-page__image'
                         />
                         <div>
