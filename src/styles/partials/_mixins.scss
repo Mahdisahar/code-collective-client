@@ -1,0 +1,28 @@
+@use "./variables" as *;
+
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin navigation-unordered {
+  list-style-type: none;
+}
+
+@mixin button-style {
+    cursor: pointer;
+    $border-radius: 3.125rem; 
+    $element-mobile-height: 3.125rem; 
+  }
+
+@mixin icon-size {
+  height: 20px;
+  width: auto;
+}

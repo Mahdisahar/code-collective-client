@@ -1,0 +1,47 @@
+@use "../src/styles/partials/mixins" as *;
+@use "../src/styles/partials/variables" as *;
+@use "../src/styles/partials/typography" as *;
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family-helvetica-replacement;
+    font-size: $mobile-font-size-body;
+}
+
+.notification {
+    position: absolute;
+    background-color: rgb(255, 232, 56);
+    color: rgb(0, 0, 0);
+    min-width: 2.2em;
+    padding: 0px 0.5em;
+    height: 2.2em;
+    border-radius: 50%;
+    font-size: 0.5em;
+    top: -0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: -1.3em;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+    &__header {
+        font-family: $font-family-helvetica-replacement;
+        font-weight: 800;   
+    }
+
+    &__title {
+        font-family: $font-family-handwritten-replacement;
+        font-weight: 800;
+        font-size: $mobile-font-size-prod-title;
+    }
+}
+

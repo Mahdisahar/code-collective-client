@@ -1,0 +1,77 @@
+//Tablet and Desktop breakpont
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+
+//Primary colors
+$color-primary-text: rgb(0,0,0); //Black
+$color-secondary-text: #333333;
+$color-cta-active: rgb(0,0,0); //Black
+$color-global: #ffffff; //White
+
+//Secondary colors
+$color-borders: rgb(234, 234, 234);
+$color-sliders: #edebed;
+$color-notification: #FEE838;
+$color-disabled: #eeeeee;
+
+//Background colors
+$color-product-background-light: #F4F2F4; 
+$color-elements-background-light: #EAEAEA;
+
+//Supporting colors
+
+$color-success: rgb(24, 169, 87);
+$color-error: rgb(255, 0, 0);
+
+// text styles variables
+$font-weight-regular: 400;
+$font-weight-semi-bold: 700;
+$font-weight-bold: 800;
+
+$font-family-helvetica-replacement: "TeXGyreHeros", sans-serif;
+$font-family-handwritten-replacement: "LushHandwritten", sans-serif;
+
+// mobile font sizes
+$mobile-font-size-header: 1.75rem; 
+$mobile-header-line-height: 1.357; 
+
+$mobile-font-size-sub-header: 1.5rem; 
+// $mobile-sub-header-line-height: 1.75rem; // 28px
+
+// $mobile-font-size-label-button: 0.813rem; // 13px
+// $mobile-label-button-line-height: 1.25rem; // 20px
+
+// $mobile-font-size-table-header: 0.688rem; // 11px
+// $mobile-table-header-line-height: 1rem; // 16px
+
+$mobile-font-size-body: 0.825rem; 
+
+$mobile-font-size-prod-title: 1.125rem; //Handwritten font
+$mobile-prod-title-line-height: 1.11rem; 
+
+$mobile-font-size-prod-details: 0.688rem;
+$mobile-prod-details-line-height: 1.455rem; 
+$mobile-prod-details-letter-spacing: 1.5px;
+
+$mobile-font-size-from-price: 0.813rem; 
+$mobile-from-price-line-height: 1.538rem; 
+$mobile-from-price-weight: 700;
+
+$mobile-font-size-del-status: 0.875rem;
+$mobile-del-status-line-height: 1.857rem; 
+$mobile-del-status-letter-spacing: 0.5px; 
+$mobile-del-status-weight: 700;
+
+
+$mobile-font-size-notification: 0.5em;
+// Add tablet font sizes here
+
+
+// elements styling
+$border-radius: 3.125rem; //20px
+$element-mobile-height: 3.125rem; //36px
+$element-tablet-height: 2.375; //38px
+
+$button-padding: 1rem;
+
+

@@ -1,18 +1,23 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Checkout from './pages/Checkout page/Checkout';
-import Code from './pages/Code page/Code';
-import Profile from './pages/Profile page/Profile';
+import './App.scss';
+
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+// import Footer from "./components/Footer/Footer";
+import HomePage from './pages/HomePage/HomePage';
+// import ProfilePage from './pages/ProfilePage/ProfilePage';
+// import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 
 function App() {
   return (
-    <BrowserRouter>
-	<Routes>
-		<Route path='/' element={<Checkout />} />
-		<Route path='/code' element={<Code/>} />
-		<Route path='/profile' element={<Profile />} />
-	</Routes>
- </BrowserRouter>
+    <div className="app">
+            <BrowserRouter>
+              <Routes>
+              <Route path="/" element={<HomePage />}/>
+              {/* <Route path="/profile" element={<ProfilePage />} /> */}
+              {/* <Route path="/checkout" element={<CheckoutPage/>}/> */}
+              </Routes>
+            </BrowserRouter>
+    </div>
   );
 }
 
