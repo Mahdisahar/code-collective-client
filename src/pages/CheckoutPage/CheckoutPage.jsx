@@ -16,15 +16,26 @@ function CheckoutPage() {
     event.preventDefault();
   };
 
-  const [points, setPoints] = useState(1000); // Example points
+  const [points, setPoints] = useState(1000); // TODO: should come from the backend
   const [redeemPoints, setRedeemPoints] = useState(0);
   const [discountApplied, setDiscountApplied] = useState(false); // State to track if discount has been applied
-
+  const [totalPrice, setTotalPrice] = useState(76.16); // TODO: Should come from backend
+  const [discountValue, setDiscountValue] = useState(0);
 
   const handleRedeemPoints = () => {
+
+    // set points to price
+     const discount = redeemPoints * 0.01; // TODO: what is the value of 1 point? 
+
+     const updatedTotalPrice = totalPrice - discount;
+
+    setDiscountValue(discount);
     setPoints((prevPoints) => prevPoints - redeemPoints);
     setRedeemPoints(0); // Reset redeemPoints after redeeming
     setDiscountApplied(true); // Set discountApplied to true after redeeming points
+    setTotalPrice(updatedTotalPrice); 
+
+
   };
 
   const handleInputChange = (e) => {
@@ -75,11 +86,13 @@ function CheckoutPage() {
                   className="checkout-page__code"
                   placeholder="Your voucher code"
                 ></input>
-                <button className="checkout-page__apply">Apply</button>
+               
               </div>
+              <button className="checkout-page__apply">Apply</button>
             </form>
           </section>
 
+          {/* TODO: rename BEM and structure of jsx elements */}
           {/* Redeem points */}
           <section>
             <form
@@ -109,14 +122,19 @@ function CheckoutPage() {
                   value={redeemPoints}
                   onChange={handleInputChange}
                 ></input>
-                <button
-                  className="checkout-page__apply"
+                
+                {discountApplied && <p> <img
+                    src={check}
+                    alt="check-icon"
+                    className="checkout-page__icon"
+                  /> Your discount has been applied</p>}
+              </div>
+              <button
+                  className="checkout-page__button"
                   onClick={handleRedeemPoints}
                 >
                   Redeem
                 </button>
-                {discountApplied && <p>Your discount has been applied</p>}
-              </div>
             </form>
           </section>
 
@@ -202,6 +220,13 @@ function CheckoutPage() {
               <p>Subtotal</p>
               <p>$68.00</p>
             </div>
+            {/* Add conditional rendering of discount applied */}
+            {!discountApplied? '' : (
+             <div className="checkout-page__row-1 checkout-page__row-1--spacing">
+             <p>Discount applied</p>
+             <p>${discountValue}</p>
+           </div>
+            )}
             <div className="checkout-page__row-1 checkout-page__row-1--spacing">
               <p>Delivery</p>
               <p>$0.00</p>
@@ -212,7 +237,7 @@ function CheckoutPage() {
             </div>
             <div className="checkout-page__row-1 checkout-page__row-1--spacing">
               <p>Total</p>
-              <p>$76.16</p>
+              <p>${totalPrice}</p>
             </div>
           </section>
         </div>
