@@ -22,16 +22,16 @@ function CheckoutPage() {
   };
 
 
-  const [points, setPoints] = useState(1000); // TODO: should come from the backend
+  const [points, setPoints] = useState(1000); // get the value from backend
   const [redeemPoints, setRedeemPoints] = useState(0);
   const [discountApplied, setDiscountApplied] = useState(false); // State to track if discount has been applied
-  const [totalPrice, setTotalPrice] = useState(76.16); // TODO: Should come from backend
+  const [totalPrice, setTotalPrice] = useState(76.16); // get the value from backend
   const [discountValue, setDiscountValue] = useState(0);
 
   const handleRedeemPoints = () => {
 
     // set points to price
-     const discount = redeemPoints * 0.25; // TODO: what is the value of 1 point? 
+     const discount = redeemPoints * 0.0025; // what is the value of 1 point? eg  1000 points = $2.5
      const updatedTotalPrice = totalPrice - discount;
 
     setDiscountValue(discount);
@@ -60,6 +60,9 @@ function CheckoutPage() {
     getcheckout();
   }, []);
 
+  const toUpperCase = (str) => {
+    return str.toUpperCase();
+  }
 
   return (
     <>
@@ -143,7 +146,7 @@ function CheckoutPage() {
                   onChange={handleInputChange}
                 ></input>
                 
-                {discountApplied && <p> <img
+                {discountApplied && <p className="checkout-page__disc-message"> <img
                     src={check}
                     alt="check-icon"
                     className="checkout-page__icon"
@@ -177,19 +180,19 @@ function CheckoutPage() {
                             {checkout.title}
                           </p>
                           <p className='checkout-page__prod-type'>
-                            {checkout.product}
+                            {toUpperCase(checkout.product)}
                           </p>
                           <div className='checkout-page__row-1'>
                             <p className='checkout-page__vol'>
                               {checkout.volum}
                             </p>
                             <p className='checkout-page__qty'>
-                              {checkout.quantity}
+                              QTY:{checkout.quantity}
                             </p>
                           </div>
                         </div>
                       </div>
-                      <p className='checkout-page__price'>{checkout.price}</p>
+                      <p className='checkout-page__price'>${checkout.price}</p>
                     </div>
                     <div className='checkout-page__row-2'>
                       <img
