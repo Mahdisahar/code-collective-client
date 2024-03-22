@@ -41,10 +41,9 @@ function CheckoutPage() {
     setTotalPrice(updatedTotalPrice); 
   };
 
-  //TODO: fix this
   const handleInputChange = (e) => {
     const { value } = e.target;
-    setRedeemPoints(parseInt(value) || 0); // Ensure value is a number
+    setRedeemPoints(value === '' ? '' : parseInt(value));
   };
 
   useEffect(() => {
