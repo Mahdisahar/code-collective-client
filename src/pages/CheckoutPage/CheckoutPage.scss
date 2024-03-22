@@ -130,13 +130,12 @@ font-weight: $font-weight-semi-bold;
 }
 
 &__apply {
-  flex: 0.5;
+  // flex: 0.5;
+  width: 100%;
   cursor: pointer;
-
   line-height: 1;
   background: transparent;
   white-space: nowrap;
-  position: relative;
   color: rgb(0, 0, 0);
   border: 1px solid rgb(0, 0, 0);
   border-radius: 0px;
@@ -151,6 +150,43 @@ font-weight: $font-weight-semi-bold;
 
 &__form {
   padding: 1rem 0;
+}
+
+&__points {
+  font-size: $mobile-font-size-from-price;
+  line-height: $mobile-from-price-line-height;
+  font-weight: $font-weight-bold;
+  display:flex;
+  gap:0.2rem;
+  align-items: center;
+}
+
+&__redeem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+&__button {
+    width: 100%;
+    margin: 1rem 0px 0px;
+    background: rgb(24, 169, 87) !important;
+    font-size: 0.875rem !important;
+    color: rgb(255, 255, 255) !important;
+    letter-spacing: 1.5px !important;
+    font-weight: 500;
+    height: 48px;
+    cursor: pointer;
+    border: 0;
+}
+
+&__redeemed {
+  padding: 0.75rem;
+  color: $color-success;
+  display: flex;
+  align-items: center;
+  gap:0.5rem;
 }
 }
 
