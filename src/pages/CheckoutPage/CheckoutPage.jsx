@@ -1,29 +1,18 @@
 import '../CheckoutPage/CheckoutPage.scss';
 // TODO: move this to public static backend files
 
-// import rosejam from "../../assets/images/rose_jam_shower_gel_2020_thumbnail_256.png";
-// import twilight from "../../assets/images/twilight_body_spray_2020_thumbnail_256.png";
-// import logo from "../../assets/logos/commerce-site-logo_22.png";
-// import padlock from "../../assets/icons/padlock.png";
-// import check from "../../assets/icons/circle.png";
-// import voucher from "../../assets/icons/voucher.png";
-// import redeem from "../../assets/icons/star_3386686.png";
-
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-
 import rosejam from '../../assets/images/rose_jam_shower_gel_2020_thumbnail_256.png';
 // import twilight from '../../assets/images/twilight_body_spray_2020_thumbnail_256.png';
 import logo from '../../assets/logos/commerce-site-logo_22.png';
 import padlock from '../../assets/icons/padlock.png';
 import check from '../../assets/icons/circle.png';
 import voucher from '../../assets/icons/voucher.png';
+import redeem from "../../assets/icons/star_3386686.png";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import { Link } from 'react-router-dom';
-
-const Base_URL = 'http://localhost:8085';
+const Base_URL = 'http://localhost:8080';
 
 function CheckoutPage() {
   const [selectcheckout, setSelectCheckout] = useState([]);
@@ -42,8 +31,7 @@ function CheckoutPage() {
   const handleRedeemPoints = () => {
 
     // set points to price
-     const discount = redeemPoints * 0.01; // TODO: what is the value of 1 point? 
-
+     const discount = redeemPoints * 0.25; // TODO: what is the value of 1 point? 
      const updatedTotalPrice = totalPrice - discount;
 
     setDiscountValue(discount);
@@ -51,10 +39,9 @@ function CheckoutPage() {
     setRedeemPoints(0); // Reset redeemPoints after redeeming
     setDiscountApplied(true); // Set discountApplied to true after redeeming points
     setTotalPrice(updatedTotalPrice); 
-
-
   };
 
+  //TODO: fix this
   const handleInputChange = (e) => {
     const { value } = e.target;
     setRedeemPoints(parseInt(value) || 0); // Ensure value is a number
@@ -92,38 +79,34 @@ function CheckoutPage() {
           <p className='checkout-header__price'>$76.16</p>
         </div>
       </header>
-      <main>
 
-//         <div className="checkout-page">
+      <main>
         <div className='checkout-page'>
 
           {/* Voucher */}
           <section>
             <form
-              id='voucher-form'
-              className='checkout-page__form'
+              id="voucher-form"
+              className="checkout-page__form"
               onSubmit={handleSubmit}
             >
-              <div className='checkout-page__voucher'>
+              <div className="checkout-page__voucher">
                 <img
                   src={voucher}
-                  alt='voucher-icon'
-                  className='checkout-page__icon'
+                  alt="voucher-icon"
+                  className="checkout-page__icon"
                 />
-                <h2 className='checkout-page__title'>Add Voucher</h2>
+                <h2 className="checkout-page__title">Add Voucher</h2>
               </div>
-              <div className='checkout-page__voucher-info'>
+              <div className="checkout-page__voucher-info">
                 <input
-                  type='text'
-                  name='voucher'
-                  id='voucher'
-                  className='checkout-page__code'
-                  placeholder='Your voucher code'
+                  type="text"
+                  name="voucher"
+                  id="voucher"
+                  className="checkout-page__code"
+                  placeholder="Your voucher code"
                 ></input>
                
-
-                <button className='checkout-page__apply'>Apply</button>
-
               </div>
               <button className="checkout-page__apply">Apply</button>
             </form>
@@ -179,8 +162,6 @@ function CheckoutPage() {
           <section>
             <h2 className='checkout-page__header'>Summary & review</h2>
             <div className='checkout-page__details'>
-              {/* TODO: get data dynamically? use array.map */}
-
               {selectcheckout.map((checkout) => (
                 <ul key={checkout.id} className='checkout-page__list'>
                   <li className='checkout-page__items'>
@@ -226,41 +207,6 @@ function CheckoutPage() {
                       Order by 19:00, collect in-store today
                     </p>
                   </li>
-                  {/* <li className='checkout-page__items'>
-                    <div className='outer-container'>
-                      <div className='checkout-page__col-1'>
-                        <img
-                          src={twilight}
-                          alt='twilight-body-spray'
-                          className='checkout-page__image'
-                        />
-                        <div>
-                          <p className='checkout-page__prod-title'>Twilight</p>
-                          <p className='checkout-page__prod-type'>BODY SPRAY</p>
-                          <div className='checkout-page__row-1'>
-                            <p className='checkout-page__vol'>200 ML</p>
-                            <p className='checkout-page__qty'> QTY: 1</p>
-                          </div>
-                        </div>
-                      </div>
-                      <p className='checkout-page__price'>$42.00</p>
-                    </div>
-                    <div className='checkout-page__row-2'>
-                      <img
-                        src={check}
-                        alt='instock-icon'
-                        className='checkout-page__icon'
-                      />
-                      <p className='checkout-page__instock'>In stock</p>
-                      <p className='checkout-page__name'>
-                        Lush Cosmetics Center
-                      </p>
-                    </div>
-
-                    <p className='checkout-page__order'>
-                      Order by 19:00, collect in-store today
-                    </p>
-                  </li> */}
                 </ul>
               ))}
             </div>
@@ -273,24 +219,22 @@ function CheckoutPage() {
               <p>$68.00</p>
             </div>
 
-//             {/* Add conditional rendering of discount applied */}
-//             {!discountApplied? '' : (
-//              <div className="checkout-page__row-1 checkout-page__row-1--spacing">
-//              <p>Discount applied</p>
-//              <p>${discountValue}</p>
-//            </div>
-//             )}
-//             <div className="checkout-page__row-1 checkout-page__row-1--spacing">
-            <div className='checkout-page__row-1 checkout-page__row-1--spacing'>
-
+           {/* Add conditional rendering of discount applied */}
+           {!discountApplied? '' : (
+             <div className="checkout-page__row-1 checkout-page__row-1--spacing">
+             <p>Discount applied</p>
+             <p>${discountValue}</p>
+           </div>
+            )}
+           <div className="checkout-page__row-1 checkout-page__row-1--spacing">
               <p>Delivery</p>
               <p>$0.00</p>
             </div>
-            <div className='checkout-page__row-1 checkout-page__row-1--spacing'>
+            <div className="checkout-page__row-1 checkout-page__row-1--spacing">
               <p>Tax</p>
               <p>$8.16</p>
             </div>
-            <div className='checkout-page__row-1 checkout-page__row-1--spacing'>
+            <div className="checkout-page__row-1 checkout-page__row-1--spacing">
               <p>Total</p>
               <p>${totalPrice}</p>
             </div>

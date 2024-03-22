@@ -2,7 +2,6 @@ import './App.scss';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// import Footer from "./components/Footer/Footer";
 import HomePage from './pages/HomePage/HomePage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
