@@ -170,8 +170,8 @@ function CheckoutPage() {
                     <div className='outer-container'>
                       <div className='checkout-page__col-1'>
                         <img
-                          src={rosejam}
-                          alt='rose-jam-shower-gel'
+                          src={checkout.image}
+                          alt='product-image'
                           className='checkout-page__image'
                         />
                         <div>
